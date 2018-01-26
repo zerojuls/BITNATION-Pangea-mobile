@@ -1,5 +1,7 @@
 import { take, takeEvery } from 'redux-saga';
 import { call, put, select } from 'redux-saga/effects';
+import { Alert } from 'react-native';
+
 import { CANCEL_NATION_CREATE, DONE_NATION_CREATE, START_NATIONS_FETCH, DONE_FETCH_NATIONS, 
 	NATION_CREATE, CANCEL_LOADING, REQUEST_JOIN_NATION, REQUEST_LEAVE_NATION } from '../actions/nations';
 import { getPangeaLibrary } from '../services/container';
@@ -37,7 +39,7 @@ function* fetchNations() {
 		let pangeaLib = yield call(getPangeaLibrary);
 		yield call(checkConnection);
 		console.log('start syncing with blockchain');
-		// yield call(pangeaLib.eth.nation.index);
+		yield call(pangeaLib.eth.nation.index);
 		console.log('synced with blockchain');
 		let result = yield call(pangeaLib.eth.nation.all);
 	  yield put({ type: DONE_FETCH_NATIONS, payload: [...result] });

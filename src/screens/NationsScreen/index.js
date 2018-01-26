@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import _ from 'lodash';
+import { Alert } from 'react-native';
 
 import NationsListScreen from './NationsListScreen';
 import { switchNationTab, openNation, requestFetchNations } from '../../actions/nations';
@@ -31,6 +33,10 @@ class NationsScreen extends NavigatorComponent {
 
   onNavBarButtonPress(id) {
     if (id === NEW_BUTTON) {
+      if (_.isEmpty(this.props.wallets)) {
+        Alert.alert('You should create a wallet first in order to create a nation.');
+        return;
+      }
       return (
         this.props.navigator.showModal(screen('NATION_CREATE_SCREEN'))
       );
@@ -62,7 +68,8 @@ NationsScreen.PropTypes = {
 };
 
 const mapStateToProps = state => ({
-  ...state.nations
+  ...state.nations,
+  ...state.wallet
 });
 
 const mapDispatchToProps = dispatch => ({

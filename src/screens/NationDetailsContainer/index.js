@@ -23,7 +23,8 @@ NationDetailsContainer.PropTypes = {
 };
 
 const mapStateToProps = state => ({
-  ...state.nations
+  ...state.nations,
+  ...state.wallet
 });
 
 const mapDispatchToProps = dispatch => ({

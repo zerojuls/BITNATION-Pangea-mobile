@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import {
 	View,
-	Text, ScrollView, Image, StatusBar,
+	Text, ScrollView, Image, StatusBar, Alert
 } from 'react-native'
 import PropTypes from 'prop-types'
+import _ from 'lodash';
 
 import BackgroundImage from '../../../components/common/BackgroundImage'
 import styles from './styles'
@@ -16,6 +17,26 @@ import FakeNavigationBar from '../../../components/common/FakeNavigationBar'
 import Strings from '../../../global/Strings'
 
 class NationDetailsScreen extends Component {
+
+	constructor(props) {
+		super(props)
+	}
+
+	onJoinNation() {
+		if (_.isEmpty(this.props.wallets)) {
+      Alert.alert('You should create a wallet first in order to join a nation.');
+      return;
+    }
+    this.props.joinNation();
+	}
+
+	onLeaveNation() {
+		if (_.isEmpty(this.props.wallets)) {
+      Alert.alert('You should create a wallet first in order to leave nation.');
+      return;
+    }
+    this.props.leaveNation();
+	}
 	
 	render () {
 		const nation = resolveNation(this.props.nations,
@@ -70,10 +91,10 @@ class NationDetailsScreen extends Component {
 				                    title='Map' disable={true}/>
 				<NationActionButton iconSource={AssetsImage.Actions.join}
 				                    title='Join' disable={joined}
-				                    onPress={this.props.joinNation}/>
+				                    onPress={() => this.onJoinNation()}/>
 				<NationActionButton iconSource={AssetsImage.Actions.leave}
 				                    title='Leave' disable={!joined}
-				                    onPress={this.props.leaveNation}/>
+				                    onPress={() => this.onleaveNation()}/>
 			</View>
 		)
 	}
