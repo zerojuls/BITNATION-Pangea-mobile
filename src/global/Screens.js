@@ -1,5 +1,5 @@
 import AssetsImages from './AssetsImages';
-import Colors from './Colors';
+import Colors from './colorsResources';
 import { Platform } from 'react-native';
 
 export const tabsStyle = {

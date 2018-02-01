@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, } from 'react-native';
 import PropTypes from 'prop-types';
 import { MediaQueryStyleSheet } from 'react-native-responsive';
-import Colors from '../../global/Colors';
+import Colors from '../../global/colorsResources';
 import GlobalStyles from '../../global/Styles';
 
 export default class NationListHeader extends Component {

@@ -18,7 +18,7 @@ import { MediaQueryStyleSheet } from 'react-native-responsive'
 import PropTypes from 'prop-types'
 
 // Global color definitions
-import Colors from '../../global/Colors'
+import Colors from '../../global/colorsResources'
 // Global styles
 import GlobalStyles from '../../global/Styles'
 

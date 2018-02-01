@@ -26,11 +26,11 @@ function isEmpty (v) {
 // example: convertHex("#FF120AE",30)
 function convertHex(hex,opacity){
 	hex = hex.replace('#','');
-	var r = parseInt(hex.substring(0,2), 16);
-	var g = parseInt(hex.substring(2,4), 16);
-	var b = parseInt(hex.substring(4,6), 16);
-	
-	var result
+  const r = parseInt(hex.substring(0,2), 16);
+  const g = parseInt(hex.substring(2,4), 16);
+  const b = parseInt(hex.substring(4,6), 16);
+
+  let result
 	if (isEmpty(opacity)) {
 		result = 'rgb('+r+','+g+','+b + ')';
 	} else {
@@ -42,16 +42,16 @@ function convertHex(hex,opacity){
 
 // Return the string for a shade of an RGBa color, based on an hex RGB color
 // newshade = shadeOf("#12CCAA", "01") returns "#12CCAA01"
-var shadeOf = (c, opacity) => {
+const shadeOf = (c, opacity) => {
 	return convertHex(c,opacity);
 }
 
 // a : alpha (number)
 // example: shadeOfBitnationColor(opacity) returns an rgba string.
-var shadeOfBitnationColor = (opacity) => {
+const shadeOfBitnationColor = (opacity) => {
 	return convertHex(BitnationColor,opacity);
 };
-var shadeOfBitnationLightColor = (opacity) => {
+const shadeOfBitnationLightColor = (opacity) => {
 	return convertHex(BitnationLightColor,opacity);
 };
 

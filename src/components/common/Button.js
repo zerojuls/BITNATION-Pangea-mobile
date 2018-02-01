@@ -4,7 +4,7 @@ import { MediaQueryStyleSheet } from 'react-native-responsive';
 import PropTypes from 'prop-types';
 
 import Text from './Text';
-import Colors from '../../global/Colors';
+import Colors from '../../global/colorsResources';
 import GlobalStyles from '../../global/Styles';
 
 export default class Button extends Component {
