@@ -13,6 +13,7 @@ import NationListItem from '../../../components/common/NationListItem';
 import NationListHeader from '../../../components/common/NationListHeader';
 import { ALL_NATIONS } from '../../../reducers/nations';
 import FakeNavigationBar from '../../../components/common/FakeNavigationBar';
+import Loading from '../../../components/common/Loading';
 import i18n from '../../../global/i18n';
 import { resolveStatus } from '../../../utils/nations';
 
@@ -68,6 +69,7 @@ class NationsListScreen extends Component {
           sections={sections}
           style={styles.sectionList}
         />
+        {this.props.inProgress && <Loading />}
       </View>
     );
   }
