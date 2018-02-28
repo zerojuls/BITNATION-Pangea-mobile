@@ -19,6 +19,7 @@ import { resolveStatus } from '../../../utils/nations';
 
 class NationsListScreen extends Component {
   render() {
+    const { inProgress } = this.props;
     const nations = this.props.selectedTab === ALL_NATIONS ?
       this.props.nations
       :
@@ -29,6 +30,25 @@ class NationsListScreen extends Component {
       title: key,
       data: group,
     }));
+    const list = inProgress ? <Loading /> : 
+      (<SectionList
+          renderItem={(item) => {
+            const nation = item.item;
+
+            const nationStatus = resolveStatus(nation);
+
+            return (<NationListItem
+              text={nation.nationName}
+              onPress={this.props.onSelectItem}
+              status={(nationStatus === null ? '' : i18n.t(`enums.nation.status.${nationStatus}`))}
+              id={nation.id}
+            />);
+          }}
+          keyExtractor={item => item.id}
+          renderSectionHeader={({ section }) => <NationListHeader title={section.title} />}
+          sections={sections}
+          style={styles.sectionList}
+        />);
 
     return (
       <View style={styles.nationsScreenContainer}>
@@ -51,25 +71,7 @@ class NationsListScreen extends Component {
             tabTextStyle={styles.tabTextStyle}
           />
         </View>
-        <SectionList
-          renderItem={(item) => {
-            const nation = item.item;
-
-            const nationStatus = resolveStatus(nation);
-
-            return (<NationListItem
-              text={nation.nationName}
-              onPress={this.props.onSelectItem}
-              status={(nationStatus === null ? '' : i18n.t(`enums.nation.status.${nationStatus}`))}
-              id={nation.id}
-            />);
-          }}
-          keyExtractor={item => item.id}
-          renderSectionHeader={({ section }) => <NationListHeader title={section.title} />}
-          sections={sections}
-          style={styles.sectionList}
-        />
-        {this.props.inProgress && <Loading />}
+        {list}
       </View>
     );
   }

@@ -31,15 +31,12 @@ export function* fetchNations() {
     const nationsCache = yield call(pangeaLib.eth.nation.all);
     const mappedCache = nationsCache.map(convertFromDatabase);
     yield put({ type: DONE_FETCH_NATIONS, payload: [...mappedCache] });
-
     yield call(checkConnection);
-    console.log('start syncing with blockchain');
     yield call(pangeaLib.eth.nation.index);
-    console.log('synced with blockchain');
-
     const updatedNations = yield call(pangeaLib.eth.nation.all);
     const mappedNations = updatedNations.map(convertFromDatabase);
     yield put({ type: DONE_FETCH_NATIONS, payload: [...mappedNations] });
+    yield put({ type: CANCEL_LOADING });
   } catch (e) {
     console.log('Update nation error: ', e);
     Alert.alert(extractMessage(e));

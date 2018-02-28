@@ -54,6 +54,7 @@ test('sagas - fetchNations', (done) => {
   const successIterator = iterator.clone();
 
   expect(successIterator.next(mockNations).value).toEqual(put({ type: DONE_FETCH_NATIONS, payload: mockNations.map(convertFromDatabase) }));
+  expect(successIterator.next().value).toEqual(put({ type: CANCEL_LOADING }));
 
   // clone and test the failure case
   const failureIterator = iterator.clone();

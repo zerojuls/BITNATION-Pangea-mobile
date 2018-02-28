@@ -50,7 +50,6 @@ export default function (state = initialState, action) {
         ...state,
         nations: action.payload,
         myNations,
-        inProgress: false,
       };
     case REQUEST_JOIN_NATION:
       return {
