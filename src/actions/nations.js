@@ -5,6 +5,7 @@ export const DONE_FETCH_NATIONS = 'DONE_FETCH_NATIONS';
 export const CANCEL_LOADING = 'CANCEL_LOADING';
 export const REQUEST_JOIN_NATION = 'REQUEST_JOIN_NATION';
 export const REQUEST_LEAVE_NATION = 'REQUEST_LEAVE_NATION';
+export const START_NATIONS_INDEX = 'START_NATIONS_INDEX';
 
 export function switchNationTab(tab) {
   return {

@@ -15,11 +15,12 @@ import styles from './styles';
 import BackgroundImage from '../../components/common/BackgroundImage';
 import FakeNavigationBar from '../../components/common/FakeNavigationBar';
 import PanelView from '../../components/common/PanelView';
+import Loading from '../../components/common/Loading';
 import i18n from '../../global/i18n';
 import WalletPanel from './WalletPanel';
 import ActivityPanel from './ActivityPanel';
 import NationsPanel from './NationsPanel';
-import { openNation } from '../../actions/nations';
+import { openNation, requestFetchNations } from '../../actions/nations';
 import { screen } from '../../global/Screens';
 import { addDummyMessage, startFetchMessages } from '../../actions/activity';
 
@@ -28,6 +29,7 @@ class Dashboard extends Component {
     super(props);
 
     this.props.startFetchMessages();
+    this.props.fetchNations();
   }
 
   _onSelectNation = (id) => {
@@ -40,6 +42,7 @@ class Dashboard extends Component {
   };
 
   render() {
+    console.log('loading indicator: ', this.props.activity.isFetching, this.props.nations.inProgress);
     return (
       <View style={styles.screenContainer}>
         <BackgroundImage />
@@ -76,6 +79,7 @@ class Dashboard extends Component {
             </View>
           </View>
         </View>
+        {(this.props.activity.isFetching || this.props.nations.inProgress) && <Loading />}
       </View>
     );
   }
@@ -99,6 +103,9 @@ const mapDispatchToProps = dispatch => ({
   onAddDummyMessage() {
     dispatch(addDummyMessage());
   },
+  fetchNations() {
+    dispatch(requestFetchNations());
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

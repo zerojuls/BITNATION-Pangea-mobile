@@ -2,7 +2,7 @@ import { call, put, select, takeEvery, all } from 'redux-saga/effects';
 import { Alert } from 'react-native';
 
 import {
-  START_NATIONS_FETCH, DONE_FETCH_NATIONS,
+  START_NATIONS_FETCH, DONE_FETCH_NATIONS,START_NATIONS_INDEX,
   CANCEL_LOADING, REQUEST_JOIN_NATION, REQUEST_LEAVE_NATION,
 } from '../actions/nations';
 import { getPangeaLibrary } from '../services/container';
@@ -24,15 +24,24 @@ const extractMessage = (error) => {
 
 export const getNations = state => state.nations;
 
+export function* indexNations() {
+  try {
+    console.log('fetching nations');
+    const pangeaLib = yield call(getPangeaLibrary);
+    yield call(checkConnection);
+    yield call(pangeaLib.eth.nation.index);
+    yield put({ type: START_NATIONS_FETCH });
+  } catch (e) {
+    console.log('Update nation error: ', e);
+    Alert.alert(extractMessage(e));
+  }
+}
+
 export function* fetchNations() {
   try {
     console.log('fetching nations');
     const pangeaLib = yield call(getPangeaLibrary);
-    const nationsCache = yield call(pangeaLib.eth.nation.all);
-    const mappedCache = nationsCache.map(convertFromDatabase);
-    yield put({ type: DONE_FETCH_NATIONS, payload: [...mappedCache] });
     yield call(checkConnection);
-    yield call(pangeaLib.eth.nation.index);
     const updatedNations = yield call(pangeaLib.eth.nation.all);
     const mappedNations = updatedNations.map(convertFromDatabase);
     yield put({ type: DONE_FETCH_NATIONS, payload: [...mappedNations] });
@@ -53,7 +62,7 @@ export function* joinNation() {
     yield call(pangeaLib.eth.nation.joinNation, currentNation);
     // console.log('joined nation: ', result);
     yield put({ type: CANCEL_LOADING });
-    yield put({ type: START_NATIONS_FETCH });
+    yield put({ type: START_NATIONS_INDEX });
   } catch (e) {
     console.log('Join nation error: ', e);
     Alert.alert(extractMessage(e));
@@ -70,7 +79,7 @@ export function* leaveNation() {
     yield call(pangeaLib.eth.nation.leaveNation, currentNation);
     // console.log('leave nation: ', result);
     yield put({ type: CANCEL_LOADING });
-    yield put({ type: START_NATIONS_FETCH });
+    yield put({ type: START_NATIONS_INDEX });
   } catch (e) {
     console.log('Leave nation error: ', e);
     Alert.alert(extractMessage(e));
@@ -80,6 +89,7 @@ export function* leaveNation() {
 
 export default function* watchNationUpdate() {
   yield all([
+    yield takeEvery(START_NATIONS_INDEX, indexNations),
     yield takeEvery(START_NATIONS_FETCH, fetchNations),
     yield takeEvery(REQUEST_JOIN_NATION, joinNation),
     yield takeEvery(REQUEST_LEAVE_NATION, leaveNation),

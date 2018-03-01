@@ -27,12 +27,11 @@ class NationsScreen extends NavigatorComponent {
         buttonColor: Colors.navigationButtonColor,
       }],
     });
+    // this.props.fetchNations();
   }
 
   onWillAppear() {
     super.onWillAppear();
-
-    this.props.fetchNations();
   }
 
   onNavBarButtonPress(id) {
