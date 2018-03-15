@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,31 +14,45 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by React Native" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="439" width="441" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bit_background" translatesAutoresizingMaskIntoConstraints="NO" id="eQv-1Q-qGo">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bit_isotipo" translatesAutoresizingMaskIntoConstraints="NO" id="VoS-Vx-2p6">
+                    <rect key="frame" x="140" y="140" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="O8p-on-CXS"/>
+                        <constraint firstAttribute="width" constant="200" id="tGT-Pv-vvm"/>
+                    </constraints>
+                </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pangea" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="140" width="441" height="43"/>
+                    <rect key="frame" x="174" y="360" width="133" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="133" id="Hcb-vE-XfK"/>
+                        <constraint firstAttribute="height" constant="43" id="ulY-hc-gAh"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
-                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstItem="VoS-Vx-2p6" firstAttribute="centerY" secondItem="eQv-1Q-qGo" secondAttribute="centerY" id="495-7Z-A9D"/>
+                <constraint firstItem="eQv-1Q-qGo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Bhm-5J-wiV"/>
+                <constraint firstAttribute="bottom" secondItem="eQv-1Q-qGo" secondAttribute="bottom" id="OZZ-SZ-oTa"/>
+                <constraint firstAttribute="trailing" secondItem="eQv-1Q-qGo" secondAttribute="trailing" id="YEk-l1-JQy"/>
+                <constraint firstItem="eQv-1Q-qGo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="au5-Mx-Y0Q"/>
+                <constraint firstItem="eQv-1Q-qGo" firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="mfz-DM-iOT"/>
+                <constraint firstItem="VoS-Vx-2p6" firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="q48-47-i5Q"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="VoS-Vx-2p6" secondAttribute="bottom" constant="20" id="sAW-2u-z8x"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="bit_background" width="1151" height="2048"/>
+        <image name="bit_isotipo" width="692" height="689"/>
+    </resources>
 </document>
