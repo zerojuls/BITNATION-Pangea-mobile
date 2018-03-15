@@ -1,144 +1,153 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
       "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "bitnation_isotipo_40.jpg",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "bitnation_isotipo_60.jpg",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "iphone-29x29-1x.png",
+      "filename" : "bitnation_isotipo_29.jpg",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "iphone-29x29-2x.png",
+      "filename" : "bitnation_isotipo_58.jpg",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "bitnation_isotipo_87.jpg",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "iphone-40x40-2x.png",
+      "filename" : "bitnation_isotipo_80.jpg",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "bitnation_isotipo_120.jpg",
       "scale" : "3x"
     },
     {
       "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "iphone-57x57-1x.png",
+      "filename" : "bitnation_isotipo_57.jpg",
       "scale" : "1x"
     },
     {
       "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "iphone-57x57-2x.png",
+      "filename" : "bitnation_isotipo_114.jpg",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iphone-60x60-2x.png",
+      "filename" : "bitnation_isotipo_120-1.jpg",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "bitnation_isotipo_180.jpg",
       "scale" : "3x"
     },
     {
-      "idiom" : "ipad",
       "size" : "20x20",
+      "idiom" : "ipad",
+      "filename" : "bitnation_isotipo_20.jpg",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "20x20",
+      "idiom" : "ipad",
+      "filename" : "bitnation_isotipo_40-1.jpg",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "ipad-29x29-1x.png",
+      "filename" : "bitnation_isotipo_29-1.jpg",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "ipad-29x29-2x.png",
+      "filename" : "bitnation_isotipo_58-1.jpg",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "ipad-40x40-1x.png",
+      "filename" : "bitnation_isotipo_40-2.jpg",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "ipad-40x40-2x.png",
+      "filename" : "bitnation_isotipo_80-1.jpg",
       "scale" : "2x"
     },
     {
       "size" : "50x50",
       "idiom" : "ipad",
-      "filename" : "ipad-50x50-1x.png",
+      "filename" : "bitnation_isotipo_50.jpg",
       "scale" : "1x"
     },
     {
       "size" : "50x50",
       "idiom" : "ipad",
-      "filename" : "ipad-50x50-2x.png",
+      "filename" : "bitnation_isotipo_100.jpg",
       "scale" : "2x"
     },
     {
       "size" : "72x72",
       "idiom" : "ipad",
-      "filename" : "ipad-72x72-1x.png",
+      "filename" : "bitnation_isotipo_72.jpg",
       "scale" : "1x"
     },
     {
       "size" : "72x72",
       "idiom" : "ipad",
-      "filename" : "ipad-72x72-2x.png",
+      "filename" : "bitnation_isotipo_144.jpg",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "ipad-76x76-1x.png",
+      "filename" : "bitnation_isotipo_76.jpg",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "ipad-76x76-2x.png",
+      "filename" : "bitnation_isotipo_152.jpg",
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "83.5x83.5",
+      "idiom" : "ipad",
+      "filename" : "bitnation_isotipo_167.jpg",
       "scale" : "2x"
     },
     {
-      "idiom" : "ios-marketing",
       "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "bitnation_isotipo_1024x1024.jpg",
       "scale" : "1x"
     }
   ],
