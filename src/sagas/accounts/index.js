@@ -1,24 +1,21 @@
 import { all, call, takeEvery } from 'redux-saga/effects';
-import { 
-  doneAccountEditing, 
-  listenForDatabaseUpdates, 
-  login, 
-  logout, 
-  checkPassword, 
-  checkPinCode, 
-  listenForDatabaseUpdates, 
-  login, 
-  logout, 
+import {
+  doneAccountEditing,
+  listenForDatabaseUpdates,
+  login,
+  logout,
+  checkPassword,
+  checkPinCode,
   savePassword,
-  savePinCode, 
+  savePinCode,
 } from './sagas';
-import { 
-  LOGIN, 
-  LOGOUT, 
-  CHECK_PASSWORD, 
-  CHECK_PIN_CODE, 
-  SAVE_PASSWORD, 
-  SAVE_PIN_CODE, 
+import {
+  LOGIN,
+  LOGOUT,
+  CHECK_PASSWORD,
+  CHECK_PIN_CODE,
+  SAVE_PASSWORD,
+  SAVE_PIN_CODE,
 } from '../../actions/accounts';
 import { UPDATE_ACCOUNT } from '../../actions/profile';
 
