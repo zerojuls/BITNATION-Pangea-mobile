@@ -81,4 +81,18 @@
   
 }
 
+- (void)testPanthalassaStart {
+  bool response = false;
+  NSError *error = nil;
+  PanthalassaUpStream *upstream = PanthalassaUpStream.new();
+  
+  response = PanthalassaStart(@"TestingString",
+                              @"password",
+                              upstream,
+                              &error);
+  [upstream send:@"Testing"];
+  
+  XCTAssertTrue(response);
+}
+
 @end

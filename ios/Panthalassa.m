@@ -267,10 +267,14 @@ RCT_REMAP_METHOD(PanthalassaStart,
   
   BOOL response;
   NSError *error = nil;
+  PanthalassaUpStream *upstream = [[PanthalassaUpStream alloc] init];
   
   response = PanthalassaStart([RCTConvert NSString:config[@"accountStore"]],
                                           [RCTConvert NSString:config[@"password"]],
+                                          upstream,
                                           &error);
+  [upstream send:@"Testing"];
+  
   NSNumber *val = [NSNumber numberWithBool:response];
   
   if (error == nil) {
@@ -278,6 +282,10 @@ RCT_REMAP_METHOD(PanthalassaStart,
   } else {
     reject(@"error", error.localizedDescription, error);
   }
+}
+
+- (void)send:(NSString *)data {
+  NSLog(@"Upstream: %@", data);
 }
 
 @end
