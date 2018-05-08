@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import <panthalassa/panthalassa.h>
+#import "PanthalassaUpStreamBridge.h"
 
 @interface PanthalassaTests : XCTestCase
 
@@ -84,13 +85,15 @@
 - (void)testPanthalassaStart {
   bool response = false;
   NSError *error = nil;
-  PanthalassaUpStream *upstream = PanthalassaUpStream.new();
   
-  response = PanthalassaStart(@"TestingString",
+  PanthalassaUpStreamBridge* upstream = [[PanthalassaUpStreamBridge alloc] init];
+  
+  response = PanthalassaStart(@"testingString",
                               @"password",
                               upstream,
                               &error);
-  [upstream send:@"Testing"];
+  
+  [upstream send:@"testing"];
   
   XCTAssertTrue(response);
 }

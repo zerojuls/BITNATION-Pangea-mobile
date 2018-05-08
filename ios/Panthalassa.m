@@ -9,6 +9,7 @@
 #import "Panthalassa.h"
 #import <panthalassa/panthalassa.h>
 #import <React/RCTConvert.h>
+#import "PanthalassaUpStreamBridge.h"
 
 @implementation Panthalassa
 
@@ -267,13 +268,14 @@ RCT_REMAP_METHOD(PanthalassaStart,
   
   BOOL response;
   NSError *error = nil;
-  PanthalassaUpStream *upstream = [[PanthalassaUpStream alloc] init];
+  PanthalassaUpStreamBridge* upstream = [[PanthalassaUpStreamBridge alloc] init];
   
   response = PanthalassaStart([RCTConvert NSString:config[@"accountStore"]],
                                           [RCTConvert NSString:config[@"password"]],
                                           upstream,
                                           &error);
-  [upstream send:@"Testing"];
+  //This is just for testing phase
+  [upstream send:@"testing"];
   
   NSNumber *val = [NSNumber numberWithBool:response];
   
@@ -282,10 +284,6 @@ RCT_REMAP_METHOD(PanthalassaStart,
   } else {
     reject(@"error", error.localizedDescription, error);
   }
-}
-
-- (void)send:(NSString *)data {
-  NSLog(@"Upstream: %@", data);
 }
 
 @end

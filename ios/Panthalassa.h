@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
-#import <panthalassa/panthalassa.h>
 
-@interface Panthalassa : NSObject <RCTBridgeModule, PanthalassaUpStream>
+@interface Panthalassa : NSObject <RCTBridgeModule>
 
 @end
