@@ -24,7 +24,7 @@ export function* launchCorrectFlow(action: CurrentAccountIdChangedAction | Start
   }
 
   if (currentAccountId === null) {
-    yield call(launchLoggedOutFlow);
+    yield call(launchLoggedInFlow);
   } else {
     yield call(launchLoggedInFlow);
   }

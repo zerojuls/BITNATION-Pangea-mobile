@@ -10,8 +10,13 @@
 
 @implementation PanthalassaUpStreamBridge
 
+- (void)setDelegate:(id)aDelegate {
+  delegate = aDelegate;
+}
+
 - (void)send:(NSString *)data {
   NSLog(@"Upstream: %@", data);
+  [delegate receiveString];
 }
 
 @end

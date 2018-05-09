@@ -268,14 +268,14 @@ RCT_REMAP_METHOD(PanthalassaStart,
   
   BOOL response;
   NSError *error = nil;
-  PanthalassaUpStreamBridge* upstream = [[PanthalassaUpStreamBridge alloc] init];
+  
+  upstream = [[PanthalassaUpStreamBridge alloc] init];
+  [upstream setDelegate:self];
   
   response = PanthalassaStart([RCTConvert NSString:config[@"accountStore"]],
                                           [RCTConvert NSString:config[@"password"]],
                                           upstream,
                                           &error);
-  //This is just for testing phase
-  [upstream send:@"testing"];
   
   NSNumber *val = [NSNumber numberWithBool:response];
   
@@ -284,6 +284,10 @@ RCT_REMAP_METHOD(PanthalassaStart,
   } else {
     reject(@"error", error.localizedDescription, error);
   }
+}
+
+- (void)receiveString {
+  NSLog(@"************ Received from delegate!!!");
 }
 
 @end

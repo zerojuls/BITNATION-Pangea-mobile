@@ -9,6 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <panthalassa/panthalassa.h>
 
-@interface PanthalassaUpStreamBridge : NSObject <PanthalassaUpStream>
+@protocol UpStreamProtocolDelegate
+
+- (void)receiveString;
+
+@end
+
+@interface PanthalassaUpStreamBridge : NSObject <PanthalassaUpStream> {
+  id delegate;
+}
+
+- (void)setDelegate:(id)delegate;
+- (void)send:(NSString *)data;
 
 @end

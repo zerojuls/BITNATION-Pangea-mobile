@@ -21,6 +21,7 @@ import { addDummyMessage, startFetchMessages } from '../../actions/activity';
 import type { NationIdType } from '../../types/Nation';
 import type { State } from '../../reducers';
 import type { Navigator } from '../../types/ReactNativeNavigation';
+import { testFunction } from '../../utils/normalizer';
 
 type Props = {
   /**
@@ -51,7 +52,6 @@ type TestingModeProps = {
 class Dashboard extends Component<Props & Actions & State & TestingModeProps> {
   constructor(props) {
     super(props);
-
     this.props.startFetchMessages();
   }
 
@@ -67,6 +67,7 @@ class Dashboard extends Component<Props & Actions & State & TestingModeProps> {
   render() {
     return (
       <View style={styles.screenContainer}>
+        {testFunction()}
         <BackgroundImage />
         <FakeNavigationBar navBarHidden />
         <View style={styles.gridContainer}>
