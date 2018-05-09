@@ -284,6 +284,8 @@ RCT_REMAP_METHOD(PanthalassaStart,
   } else {
     reject(@"error", error.localizedDescription, error);
   }
+  
+  [upstream send:@"This is a test"];
 }
 
 - (void)receiveString {
