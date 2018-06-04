@@ -5,6 +5,7 @@ import { NativeModules } from 'react-native';
 const { Panthalassa } = NativeModules;
 const {
   PanthalassaStart,
+  PanthalassaStop,
 } = Panthalassa;
 
 type StartConfig = {
@@ -26,4 +27,12 @@ export function start(startConfig: StartConfig, password: string) : Promise<void
     }),
     password,
   });
+}
+
+/**
+ * @desc Stop panthalassa
+ * @return {Promise<void>} will be resolved when stopped or rejected if fail to stop
+ */
+export function stop() {
+  return PanthalassaStop();
 }
