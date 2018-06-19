@@ -55,7 +55,7 @@ export function launchLoggedInFlow() {
  */
 export function launchLoggedOutFlow(hasAccounts: boolean) {
   Navigation.startSingleScreenApp({
-    screen: hasAccounts === true ? screen('ACCOUNTS_ACCESS_SCREEN') : screen('ACCOUNTS_SCREEN'),
+    screen: screen('INTRO_SCREEN'),
     appStyle: { ...appStyle },
   });
 }
